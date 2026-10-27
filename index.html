@@ -15775,5 +15775,20 @@ header{height:112px}.brand-logo{display:block;width:132px;height:102px;object-fi
   }
   (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime11.jsx)(OfflineApp, {}));
 })();
- 
+ <script>
+    // --- CONNECT TO LOGINS ---
+    const SUPABASE_URL = "https://supabase.co"; 
+    const SUPABASE_ANON_KEY = "sb_publishable_goGjmLFbxNymW10YbULarg_lwYq9DRo"; 
+
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // This automatically checks if a user is logged in
+    supabaseClient.auth.getSession().then(({ data }) => {
+        if (!data.session) {
+            console.log("User is not logged in yet");
+        } else {
+            console.log("User logged in successfully!");
+        }
+    });
+</script>
  
